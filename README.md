@@ -17,7 +17,8 @@ jsbatchrun-npm uses [grunt](https://gruntjs.com/) for accessing npm in a platfor
 * Usage (see further down this page)
   * [Getting started guide](#getting-started)
   * [Usage and examples](#usage)
-  * [jsbr fs clean](docs/fs.clean.md)
+  * [jsbr npm dependency](docs/npm.dependency.md)
+  * [jsbr npm install](docs/npm.install.md)
 
 * Developers
   * [Testing jsbatchrun-npm](docs/grunt.md#testing)
