@@ -1,0 +1,27 @@
+{
+  "name": "example-project-03",
+  "version": "0.0.1",
+  "description": "example project",
+  "author": "Some Author",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.15.1"
+  },
+  "main": "lib",
+  "scripts": {
+    "all": "grunt all",
+    "build": "grunt build",
+    "docs": "grunt docs",
+    "test": "grunt test",
+    "update": "npx npm-check-updates -u -x webpack"
+  },
+  "keywords": [ "example" ],
+  "peerDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@rollup/plugin-commonjs": "^17.0.0"
+  },
+  "dependencies": {
+    "grunt": "^1.3.0"
+  }
+}
