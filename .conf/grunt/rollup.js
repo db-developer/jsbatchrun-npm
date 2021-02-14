@@ -10,7 +10,7 @@ module.exports  = function ( grunt, options ) {
   return {
     options: {
       external:   [
-                    "path",   // node modules
+                    "fs", "path",   // node modules
                     "grunt",
                     "jsbatch-lang", "jsbatch-strings"
                   ],

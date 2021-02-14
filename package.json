@@ -60,6 +60,6 @@
     "grunt-jsonfile": "^0.2.6",
     "grunt-npm-command": "^0.1.2",
     "jsbatch-lang": "^0.0.2",
-    "jsbatch-strings": "^0.0.1"
+    "jsbatch-strings": "^0.0.2"
   }
 }
