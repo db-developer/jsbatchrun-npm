@@ -52,3 +52,6 @@ This plugin provides you with the following commands
 
 * <code>&gt; jsbr npm install ...</code> [for installing all dependencies in a list of target
   directories. (Help)](docs/npm.dependency.md)
+
+* <code>&gt; jsbr npm run ...</code> [for running scripts (package.json script section) in a list of target
+  directories. (Help)](docs/npm.run.md)

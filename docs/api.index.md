@@ -8,3 +8,6 @@
 * [jsbatchrun-npm/install](api.md/install.md#module_jsbatchrun-npm/install)
     * [~invoke(args)](api.md/install.md#module_jsbatchrun-npm/install..invoke)
     * [~config(projectdir)](api.md/install.md#module_jsbatchrun-npm/install..config) ⇒ <code>object</code>
+* [jsbatchrun-npm/run](api.md/run.md#module_jsbatchrun-npm/run)
+    * [~invoke(args)](api.md/run.md#module_jsbatchrun-npm/run..invoke)
+    * [~config(projectdir)](api.md/run.md#module_jsbatchrun-npm/run..config) ⇒ <code>object</code>

@@ -1,7 +1,8 @@
 [[ BACK (to readme.md) ]](../README.md) &nbsp; [[ API ]](api.index.md) &nbsp;
 [[ Contributing ]](contributing.md) &nbsp;
-[[ HELP (jsbr npm dependency) ]](npm.dependency.md) &nbsp; [[ Frameworks ]](frameworks.md)
-&nbsp; [[ Grunt ]](grunt.md)
+[[ HELP (jsbr npm dependency) ]](npm.dependency.md) &nbsp;
+[[ HELP (jsbr npm run) ]](npm.run.md) &nbsp;
+[[ Frameworks ]](frameworks.md) &nbsp; [[ Grunt ]](grunt.md)
 
 ### install ###
 <blockquote>
@@ -57,26 +58,26 @@
   <br />
 
   <p>
-    Run an npm install for all projects in the global list of projects
+    Run 'npm install' for all projects in the global list of projects
 
   ```bash
-  > batchrun npm install
+  > jsbr npm install
   ```
   </p>
   <p>
-    Clean cache and run an npm install for all projects in the global list of
+    Clean cache and run 'npm install' for all projects in the global list of
     projects, starting at index 7 and including all projects up to index 12
     inclusive. (The first index, that could be addressed was '0')
 
   ```bash
-  > batchrun npm install --cleancache --args:from 7 --args:to 12
+  > jsbr npm install --cleancache --args:from 7 --args:to 12
   ```
   </p>
   <p>
-    Run an npm install for a project located at <code>~/projects/my project</code>
+    Run 'npm install' for a project located at <code>~/projects/my project</code>
 
   ```bash
-  > batchrun npm install "~/projects/my project"
+  > jsbr npm install "~/projects/my project"
   ```
   </p>
 </blockquote>

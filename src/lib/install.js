@@ -41,7 +41,6 @@ function _init_STRINGS() {
     CMD_CACHE:                `${ cache   }`,
     CMD_INSTALL:              `${ install }`,
     CMDUSAGE:                 usage,
-    CONFIG:                   "config",     // remove, if version of jsbatch-strings >= 0.0.2
     GRUNT_PLUGIN_NPM_CMD:     "grunt-npm-command",
     GRUNT_TASK_NPM_CACHE:     `${ npmcommand }:${ cache   }`,
     GRUNT_TASK_NPM_INSTALL:   `${ npmcommand }:${ install }`,

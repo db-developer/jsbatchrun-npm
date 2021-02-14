@@ -1,7 +1,8 @@
 [[ BACK (to readme.md) ]](../README.md) &nbsp; [[ API ]](api.index.md) &nbsp;
 [[ Contributing ]](contributing.md) &nbsp;
-[[ HELP (jsbr npm install) ]](npm.install.md) &nbsp; [[ Frameworks ]](frameworks.md)
-&nbsp; [[ Grunt ]](grunt.md)
+[[ HELP (jsbr npm install) ]](npm.install.md) &nbsp;
+[[ HELP (jsbr npm run) ]](npm.run.md) &nbsp;
+[[ Frameworks ]](frameworks.md) &nbsp; [[ Grunt ]](grunt.md)
 
 ### dependency ###
 <blockquote>
@@ -70,7 +71,7 @@
     for all projects in the global list of projects
 
   ```bash
-  > batchrun npm dependency --dev --pkg @babel/core --version "^7.12.13"
+  > jsbr npm dependency --dev --pkg @babel/core --version "^7.12.13"
   ```
   </p>
   <p>
@@ -79,7 +80,7 @@
     projects up to index 12 inclusive. (The first index, that could be addressed was '0')
 
   ```bash
-  > batchrun npm dependency --dev --pkg @babel/core --version "^7.12.13" --args:from 7 --args:to 12
+  > jsbr npm dependency --dev --pkg @babel/core --version "^7.12.13" --args:from 7 --args:to 12
   ```
   </p>
   <p>
@@ -87,7 +88,7 @@
     for a project located at <code>~/projects/my project</code>
 
   ```bash
-  > batchrun npm dependency --dev --pkg @babel/core --version "^7.12.13" "~/projects/my project"
+  > jsbr npm dependency --dev --pkg @babel/core --version "^7.12.13" "~/projects/my project"
   ```
   </p>
 </blockquote>

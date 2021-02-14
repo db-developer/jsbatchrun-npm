@@ -33,7 +33,6 @@ function _init_STRINGS() {
 
   const strings    = {
     CMDUSAGE:                 usage,
-    CONFIG:                   "config",     // remove, if version of jsbatch-strings >= 0.0.2
     GRUNT_PLUGIN_JSONFILE:    "grunt-jsonfile",
     GRUNT_TASK_JSONFILE:      "jsonfile",
     ID_VALUE:                 dependency,
