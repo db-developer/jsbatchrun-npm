@@ -68,7 +68,7 @@
     Run 'npm run somescript' for a project located at <code>~/projects/my project</code>
 
   ```bash
-  > jsbr npm run --script "~/projects/my project"
+  > jsbr npm run --script somescript "~/projects/my project"
   ```
   </p>
 </blockquote>
