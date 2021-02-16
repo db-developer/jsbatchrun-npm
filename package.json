@@ -1,6 +1,6 @@
 {
   "name": "jsbatchrun-npm",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "jsbatchrun plugin - do npm tasks",
   "author": "Dirk Brenckmann <db.developer@gmx.de>",
   "license": "MIT",
