@@ -18,19 +18,6 @@ npm:
     - npm cache clean --force
     - npm install
 
-test:
-  stage: test
-
-  tags:
-    - docker
-
-  script:
-    - npm run test
-
-  artifacts:
-    reports:
-      cobertura: dist/coverage/cobertura-coverage.xml
-
 cleanup:
   stage: cleanup
 
