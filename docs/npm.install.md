@@ -45,7 +45,7 @@
             (will override any ranges set by --args:from and --args:to)</td>
         </tr>
     <tr><th colspan="3"><b>special options</b></th></tr>
-    <tr><td>--env:opt:[optionname][propertyname]</td>
+    <tr><td>--env:opt:[optionname]:[propertyname]</td>
         <td style="text-align:center">boolean</td>
         <td>inject an option by using a property value (configuration file)</td>
         </tr>

@@ -61,7 +61,7 @@
             (will override any ranges set by --args:from and --args:to)</td>
         </tr>
     <tr><th colspan="3" style="text-align:left"><b>special options</b></th></tr>
-    <tr><td>--env:opt:[optionname][propertyname]</td>
+    <tr><td>--env:opt:[optionname]:[propertyname]</td>
         <td style="text-align:center">boolean</td>
         <td>inject an option by using a property value (configuration file)</td>
         </tr>
@@ -79,17 +79,10 @@
   <br />
 
   <p>
-    Run 'npm run somescript' for all projects in the global list of projects
+    Run 'npm outdated' for all projects in the global list of projects
 
   ```bash
-  > jsbr npm run --script somescript
-  ```
-  </p>
-  <p>
-    Run 'npm run somescript' for a project located at <code>~/projects/my project</code>
-
-  ```bash
-  > jsbr npm run --script somescript "~/projects/my project"
+  > jsbr npm outdated
   ```
   </p>
 </blockquote>
