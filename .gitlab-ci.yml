@@ -2,7 +2,6 @@ image: node:latest
 
 stages:
   - npm
-  - test
   - cleanup
 
 cache:
