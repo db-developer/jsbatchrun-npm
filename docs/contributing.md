@@ -1,6 +1,8 @@
 [[ BACK (to readme.md)]](../README.md) &nbsp; [[ API ]](api.index.md) &nbsp;
 [[ HELP (jsbr npm dependency) ]](npm.dependency.md) &nbsp;
 [[ HELP (jsbr npm install) ]](npm.install.md) &nbsp;
+[[ HELP (jsbr npm outdated) ]](npm.outdated.md) &nbsp;
+[[ HELP (jsbr npm run) ]](npm.run.md) &nbsp;
 [[ Frameworks ]](frameworks.md) &nbsp; [[ Grunt ]](grunt.md)
 
 ## contributing guidelines ##

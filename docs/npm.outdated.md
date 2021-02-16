@@ -2,20 +2,36 @@
 [[ Contributing ]](contributing.md) &nbsp;
 [[ HELP (jsbr npm dependency) ]](npm.dependency.md) &nbsp;
 [[ HELP (jsbr npm install) ]](npm.install.md) &nbsp;
-[[ HELP (jsbr npm outdated) ]](npm.outdated.md) &nbsp;
+[[ HELP (jsbr npm run) ]](npm.run.md) &nbsp;
 [[ Frameworks ]](frameworks.md) &nbsp; [[ Grunt ]](grunt.md)
 
 ### install ###
 <blockquote>
-  <p>Call <code>npm run</code> for one or more projects.</p>
+  <p>Call <code>npm outdated</code> for one or more projects.</p>
 
   <table border=0 width=100%>
     <tr><th colspan="3" style="text-align:left"><b>format</b></th></tr>
     <tr><th colspan="3" style="text-align:left">&gt; jsbr npm install --script &lt;scriptname&gt; [options] [directories]</th></tr>
     <tr><th colspan="3" style="text-align:left"><b>options</b></th></tr>
-    <tr><td>--script</td>
-        <td style="text-align:center">string</td>
-        <td>run the script from package.json(s) script section</td>
+    <tr><td>--json</td>
+        <td style="text-align:center">boolean</td>
+        <td>show information in JSON format.</td>
+        </tr>
+    <tr><td>--long</td>
+        <td style="text-align:center">boolean</td>
+        <td>show extended information.</td>
+        </tr>
+    <tr><td>--parseable</td>
+        <td style="text-align:center">boolean</td>
+        <td>show parseable output instead of tree view.</td>
+        </tr>
+    <tr><td>--global</td>
+        <td style="text-align:center">boolean</td>
+        <td>check packages in the global install prefix instead of in the current project.</td>
+        </tr>
+    <tr><td>--depth</td>
+        <td style="text-align:center">integer</td>
+        <td>max depth for checking dependency tree.</td>
         </tr>
     <tr><th colspan="3" style="text-align:left"><b>additional options</b> (will extend the arguments iterated by <code>jsbr fs clean</code>)</th></tr>
     <tr><td>--env:args:use:[propertyname]</td>

@@ -2,6 +2,8 @@
 [[ Contributing ]](contributing.md) &nbsp;
 [[ HELP (jsbr npm dependency) ]](npm.dependency.md) &nbsp;
 [[ HELP (jsbr npm install) ]](npm.install.md) &nbsp;
+[[ HELP (jsbr npm outdated) ]](npm.outdated.md) &nbsp;
+[[ HELP (jsbr npm run) ]](npm.run.md) &nbsp;
 [[ Frameworks ]](frameworks.md)
 
 ## make targets of gruntfile.js and package.json ##

@@ -1,12 +1,12 @@
 /**
- *	run.js: @org.slashlib/jsbatchrun-npm
+ *	outdated.js: @org.slashlib/jsbatchrun-npm
  *
- *  @module jsbatchrun-npm/run
+ *  @module jsbatchrun-npm/outdated
  *
  *//*
  *  © 2021, slashlib.org.
  *
- *  run.js  is distributed WITHOUT ANY WARRANTY; without even the implied
+ *  outdated.js  is distributed WITHOUT ANY WARRANTY; without even the implied
  *  warranty of  MERCHANTABILITY or  FITNESS  FOR A  PARTICULAR  PURPOSE.
  *
  *//* eslint-disable-next-line */
@@ -29,17 +29,16 @@ const _m = {
  *  @ignore
  */
 function _init_STRINGS() {
-  const run         = "run";
-  const usage       = `${ _m.strings.TAB3 } jsbr npm ${ run } <options> [directories]`;
+  const outdated    = "outdated";
+  const usage       = `${ _m.strings.TAB3 } jsbr npm ${ outdated } <options> [directories]`;
 
   const strings = {
-    CMD_RUN:                  run,
     CMDUSAGE:                 usage,
     GRUNT_PLUGIN_NPM_CMD:     "grunt-npm-command",
     GRUNT_TASK:               "npm-command",
     MSG_ERR_MISSING_ARGS:     "Missing parameter 'args'.",
-    MSG_ERR_MISSING_SCRIPT:   "Property 'args.script' {string} not set.",
-    ID_VALUE:                 run
+    NPM_CMD:                  outdated,
+    ID_VALUE:                 outdated
   };
   return Object.assign( strings, _m.strings );
 }
@@ -51,16 +50,13 @@ function _init_STRINGS() {
 const _STRINGS = _init_STRINGS();
 
 /**
- *  Run `npm run` for a number of project directories.
+ *  Run `npm outdated` for a number of project directories.
  *
  *  @param  {object} args
  */
 function invoke( args ) {
   if ( ! _m.lang.exists( args )) {
        return Promise.reject( new ReferenceError( _STRINGS.MSG_ERR_MISSING_ARGS ));
-  }
-  else if ( ! _m.lang.isNotEmpty( args.script )) {
-       return Promise.reject( new ReferenceError( _STRINGS.MSG_ERR_MISSING_SCRIPT ));
   }
   else return new Promise(( resolve, reject ) => {
     _m.grunt.task.init  = function() {};
@@ -107,22 +103,29 @@ function invoke( args ) {
   });
 }
 
+const _OPTIONS = [ "json", "long", "parseable", "global", "depth" ];
+
 /**
- *  Returns a grunt configuration for npm run
+ *  Returns a grunt configuration for npm outdated
  *  @param  {string}  projectdir
  *  @return {object}  grunt configuration
  */
 function config( projectdir, args ) {
-        args = _m.lang.exists( args ) ? args : { };
+  const argo = _m.lang.exists( args ) ? args : { };
+        args = [];
   const cwd  = _m.lang.exists( projectdir ) ? projectdir : ".";
+
+  _OPTIONS.forEach(( option ) => {
+    if ( _m.lang.exists( argo[ option ])) {
+         args.push( `--${ option }` );
+    }
+  });
 
   return {
     "npm-command": {
       target: {
         options: {
-          cwd:  cwd,
-          cmd:  _STRINGS.CMD_RUN,
-          args: [ args.script ]
+          cwd, cmd: _STRINGS.NPM_CMD, args
         }
       }
     }
@@ -130,14 +133,19 @@ function config( projectdir, args ) {
 }
 
 /**
- *  Help string for 'npm install' command
+ *  Help string for 'npm outdated' command
  *
  *//* eslint-disable-next-line no-unused-vars */
 function help( cmdstr, args ) {
   return `${ _STRINGS.USAGE }\n\r${ _STRINGS.CMDUSAGE }
 
 options:
-  --script <string>     npm run <script>
+  --json <boolean>        Show information in JSON format.
+  --long <boolean>        Show extended information.
+  --parseable <boolean>   Show parseable output instead of tree view.
+  --global <boolean>      Check packages in the global install prefix
+                                instead of in the current project.
+  --depth <integer>       Max depth for checking dependency tree.
 
 ${ _STRINGS.USAGEOPTS }
 

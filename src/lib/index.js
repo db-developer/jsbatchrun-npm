@@ -22,7 +22,11 @@ const _m = {
   // import command 'dependency' from its own module
   dependency:   require( "./dependency" ),
   // import command 'install' from its own module
-  install:      require( "./install"    )
+  install:      require( "./install"    ),
+  // import command 'outdated' from its own module
+  outdated:     require( "./outdated"   ),
+  // import command 'run' from its own module
+  run:          require( "./run" )
 };
 
 /**
@@ -54,6 +58,22 @@ Object.defineProperty( _REGISTRY.cmd, _m.install.id,     {
   writable: false, enumerable: true, configurable: false });
 Object.defineProperty( _REGISTRY.help, _m.install.id,    {
   value:    _m.install.help,
+  writable: false, enumerable: true, configurable: false });
+
+// outdated
+Object.defineProperty( _REGISTRY.cmd, _m.outdated.id,    {
+  value:    _m.outdated.invoke,
+  writable: false, enumerable: true, configurable: false });
+Object.defineProperty( _REGISTRY.help, _m.outdated.id,   {
+  value:    _m.outdated.help,
+  writable: false, enumerable: true, configurable: false });
+
+// outdated
+Object.defineProperty( _REGISTRY.cmd, _m.run.id,         {
+  value:    _m.run.invoke,
+  writable: false, enumerable: true, configurable: false });
+Object.defineProperty( _REGISTRY.help, _m.run.id,        {
+  value:    _m.run.help,
   writable: false, enumerable: true, configurable: false });
 
 // Module exports:

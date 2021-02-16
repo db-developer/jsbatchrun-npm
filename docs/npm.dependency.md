@@ -1,6 +1,7 @@
 [[ BACK (to readme.md) ]](../README.md) &nbsp; [[ API ]](api.index.md) &nbsp;
 [[ Contributing ]](contributing.md) &nbsp;
 [[ HELP (jsbr npm install) ]](npm.install.md) &nbsp;
+[[ HELP (jsbr npm outdated) ]](npm.outdated.md) &nbsp;
 [[ HELP (jsbr npm run) ]](npm.run.md) &nbsp;
 [[ Frameworks ]](frameworks.md) &nbsp; [[ Grunt ]](grunt.md)
 
@@ -53,6 +54,10 @@
             (will override any ranges set by --args:from and --args:to)</td>
         </tr>
     <tr><th colspan="3"><b>special options</b></th></tr>
+    <tr><td>--env:opt:[optionname][propertyname]</td>
+        <td style="text-align:center">boolean</td>
+        <td>inject an option by using a property value (configuration file)</td>
+        </tr>
     <tr><td>--debug</td>
         <td style="text-align:center">boolean</td>
         <td>display debug information</td>
