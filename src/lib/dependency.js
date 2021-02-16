@@ -36,7 +36,7 @@ function _init_STRINGS() {
     GRUNT_PLUGIN_JSONFILE:    "grunt-jsonfile",
     GRUNT_TASK_JSONFILE:      "jsonfile",
     ID_VALUE:                 dependency,
-    MERGE:                    "merge"
+    UPDATE:                   "update"
   };
   return Object.assign( strings, _m.strings );
 }
@@ -72,9 +72,9 @@ function invoke( args ) {
     const dependencies  = {};
           dependencies[ args.pkg ] = args.version;
 
-    let merge = undefined;
-    if ( args.dev ) { merge = { devDependencies: dependencies }; }
-    else merge = { dependencies };
+    let change = undefined;
+    if ( args.dev ) { change = { devDependencies: dependencies }; }
+    else change = { dependencies };
 
     _m.grunt.task.init  = function() {};
     _m.grunt.loadNpmTasks( _STRINGS.GRUNT_PLUGIN_JSONFILE );
@@ -89,7 +89,7 @@ function invoke( args ) {
       return promise.then(( ) => {
         return new Promise(( resolve /*, reject */) => {
           const tasks = [ _STRINGS.GRUNT_TASK_JSONFILE ];
-          _m.grunt.config.init( config( dir, _STRINGS.MERGE, merge ));
+          _m.grunt.config.init( config( dir, _STRINGS.UPDATE, change ));
           _m.grunt.tasks( tasks, { force: true }, () => {
             if ( _m.grunt.fail.errorcount > 1 ) {
                  failed.push({ index, dir })
