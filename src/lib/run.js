@@ -113,14 +113,16 @@ function invoke( args ) {
  *  @return {object}  grunt configuration
  */
 function config( projectdir, args ) {
-  args = _m.lang.exists( args ) ? args : [ ];
+        args = _m.lang.exists( args ) ? args : [ ];
+  const cwd  = _m.lang.exists( projectdir ) ? projectdir : ".";
+
   return {
     "npm-command": {
       target: {
         options: {
-          cwd:  projectdir,
+          cwd:  cwd,
           cmd:  _STRINGS.CMD_RUN,
-          args: args.script
+          args: [ args.script ]
         }
       }
     }
