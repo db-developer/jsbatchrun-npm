@@ -123,7 +123,8 @@ function config( projectdir, type, value ) {
 
   const templates         = { };
         templates[ name ] = pkgjsonpath;
-  const options           = { templates };
+  const EOF               = true;
+  const options           = { EOF, templates };
 
   const update            = { template: name, dest: pkgjsonpath };
   if ( _m.lang.isNotEmpty( type  ) &&
