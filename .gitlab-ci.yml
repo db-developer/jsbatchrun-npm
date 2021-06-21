@@ -15,8 +15,7 @@ npm:
     - docker
 
   script:
-    - npm cache clean --force
-    - npm install
+    - npm install --force
 
 cleanup:
   stage: cleanup
