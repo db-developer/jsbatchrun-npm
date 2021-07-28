@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "grunt": "^1.4.0",
-    "grunt-jsonfile": "^0.2.9",
+    "grunt-jsonfile": "^1.0.0",
     "grunt-npm-command": "^0.1.2",
     "jsbatch-lang": "^0.0.2",
     "jsbatch-strings": "^0.0.2"
