@@ -86,7 +86,7 @@ describe( "01.03.run.spec.js - Testing module 'run.js'", () => {
                            .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     });
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
+    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (1)", ( done ) => {
         const projects  = [ "project-01", "project-02" ];
         const dirs      = projects.map(( dir ) => {
                             return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -103,15 +103,15 @@ describe( "01.03.run.spec.js - Testing module 'run.js'", () => {
                            })
                           .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
-    });
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
+    }).timeout( 3000 );
+    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (2)", ( done ) => {
         const args     = { script: "test" };
         expect(() => { run.invoke( args )
                            .then(( value ) => { done() })
                            .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
-    });
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
+    }).timeout( 3000 );
+    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (3)", ( done ) => {
         const projects = [ "project-03" ];
         const dirs     = projects.map(( dir ) => {
                            return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -121,8 +121,8 @@ describe( "01.03.run.spec.js - Testing module 'run.js'", () => {
                            .then(( value ) => { done() })
                            .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
-    });
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
+    }).timeout( 3000 );
+    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (4)", ( done ) => {
         const projects = [ "project-03" ];
         const dirs     = projects.map(( dir ) => {
                            return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -138,7 +138,7 @@ describe( "01.03.run.spec.js - Testing module 'run.js'", () => {
                            })
                           .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
-    });
+    }).timeout( 3000 );
     it( "should be callable with argument 'args' { ... } (complete but invalid directory) and get rejected", ( done ) => {
         const projects = [ "does.not.exist" ];
         const dirs     = projects.map(( dir ) => {

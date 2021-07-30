@@ -6,7 +6,7 @@
 const expect  = require( "expect.js" );
 const path    = require( "path" );
 
-describe( "01.03.outdated.spec.js - Testing module 'outdated.js'", () => {
+describe( "01.04.outdated.spec.js - Testing module 'outdated.js'", () => {
   const outdated = require( "../../lib/outdated" );
 
   describe( "Testing exports of module 'outdated'", () => {
@@ -74,7 +74,7 @@ describe( "01.03.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     });
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
+    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (1)", ( done ) => {
         const projects = [ "project-01" ];
         const dirs     = projects.map(( dir ) => {
                            return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -85,7 +85,7 @@ describe( "01.03.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     }).timeout( 150000 );
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
+    it.only( "should be callable with argument 'args' { ... } (complete and valid) and resolve (2)", ( done ) => {
         const projects  = [ "project-04", "project-05" ];
         const dirs      = projects.map(( dir ) => {
                             return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -102,7 +102,7 @@ describe( "01.03.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     }).timeout( 150000 );
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
+    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (3)", ( done ) => {
         const projects = [ "project-06" ];
         const dirs     = projects.map(( dir ) => {
                            return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -119,7 +119,7 @@ describe( "01.03.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     }).timeout( 150000 );
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
+    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (4)", ( done ) => {
         const projects = [ "does.not.exist" ];
         const dirs     = projects.map(( dir ) => {
                            return path.join( process.cwd(), "src", "test", "tmp", dir );

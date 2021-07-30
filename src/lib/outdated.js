@@ -65,6 +65,8 @@ function invoke( args ) {
     const dirs    = Array.isArray( args.args ) ? args.args : [ ];
     const failed  = [ ];
 
+    console.log( "====>", dirs );
+
     const promise = dirs.reduce(( promise, dir, index ) => {
       // reset errorcount & warncount
       _m.grunt.fail.errorcount = 0;
@@ -75,9 +77,11 @@ function invoke( args ) {
           if ( _m.fs.existsSync( dir )) {
                const tasks = [ _STRINGS.GRUNT_TASK ];
                _m.grunt.config.init( config( dir, args ));
-               _m.grunt.tasks( tasks, { force: true }, () => {
+               _m.grunt.tasks( tasks, { force: true }, ( err, x ) => {
+                 console.log( "===============> ...", err, x );
                  if (( _m.grunt.fail.errorcount > 0 ) ||
                      ( _m.grunt.fail.warncount  > 0 )) {
+                       console.log( "===============> We have a warning/fail" );
                        failed.push({ index, dir })
                        _m.grunt.log.error( dir );
                  }
@@ -121,7 +125,7 @@ function config( projectdir, args ) {
     }
   });
 
-  return {
+  return  {
     "npm-command": {
       target: {
         options: {
