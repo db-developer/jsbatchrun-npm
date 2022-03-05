@@ -85,7 +85,7 @@ describe( "01.04.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     }).timeout( 150000 );
-    it.only( "should be callable with argument 'args' { ... } (complete and valid) and resolve (2)", ( done ) => {
+    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (2)", ( done ) => {
         const projects  = [ "project-04", "project-05" ];
         const dirs      = projects.map(( dir ) => {
                             return path.join( process.cwd(), "src", "test", "tmp", dir );
