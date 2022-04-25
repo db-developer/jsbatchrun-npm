@@ -65,8 +65,6 @@ function invoke( args ) {
     const dirs    = Array.isArray( args.args ) ? args.args : [ ];
     const failed  = [ ];
 
-    console.log( "====>", dirs );
-
     const promise = dirs.reduce(( promise, dir, index ) => {
       // reset errorcount & warncount
       _m.grunt.fail.errorcount = 0;
@@ -77,15 +75,15 @@ function invoke( args ) {
           if ( _m.fs.existsSync( dir )) {
                const tasks = [ _STRINGS.GRUNT_TASK ];
                _m.grunt.config.init( config( dir, args ));
-               _m.grunt.tasks( tasks, { force: true }, ( err, x ) => {
-                 console.log( "===============> ...", err, x );
+               _m.grunt.tasks( tasks, { force: true }, ( ) => {
                  if (( _m.grunt.fail.errorcount > 0 ) ||
                      ( _m.grunt.fail.warncount  > 0 )) {
-                       console.log( "===============> We have a warning/fail" );
-                       failed.push({ index, dir })
-                       _m.grunt.log.error( dir );
+                       failed.push({ index, dir,
+                                     warnings: _m.grunt.fail.warncount,
+                                     errors:   _m.grunt.fail.errorcount })
+                       _m.grunt.log.error( "Outdated: " + dir );
                  }
-                 else  _m.grunt.log.ok( dir );
+                 else  _m.grunt.log.ok( "Up to date: " + dir );
                  // always resolve!
                  resolve();
                });
@@ -100,9 +98,15 @@ function invoke( args ) {
     }, Promise.resolve());
 
     // finally resolve or reject our promise ...
-    promise.then(( /*v*/ ) => { if ( failed.length > 0 ) { reject( failed ); }
-                                else resolve(); },
-                 /* istanbul ignore next */
+    promise.then(( /*v*/ ) => {
+                   if ( failed.length > 0 ) {
+                        const message      = _STRINGS.GRUNT_TASK + " " + _STRINGS.NPM_CMD + " failed."
+                        const error        = new Error( message );
+                              error.failed = failed;
+                        reject( error );
+                   }
+                   else resolve();
+            }, /* istanbul ignore next */
                  ( error ) => { reject( error )});
   });
 }
