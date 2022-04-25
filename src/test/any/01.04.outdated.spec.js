@@ -57,7 +57,7 @@ describe( "01.04.outdated.spec.js - Testing module 'outdated.js'", () => {
     });
   });
   describe( "Testing function 'invoke' of module 'outdated'", () => {
-    it( "should be callable without arguments but get rejected", ( done ) => {
+    it( "should be callable without parameters and get rejected", ( done ) => {
         expect(() => { outdated.invoke()
                                .then(( value ) => { done( new Error( "Should get rejectd" ))},
                                      ( error ) => {
@@ -67,14 +67,33 @@ describe( "01.04.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     });
-    it( "should be callable without arguments but get rejected", ( done ) => {
+    it( "should be callable with parameter 'args' { } and resolve", ( done ) => {
         const args = { };
         expect(() => { outdated.invoke( args )
-                               .then(( value ) => { done() })
-                               .catch(( error ) => { done( error ); });
+                               .then((  value ) => { done(       )})
+                               .catch(( error ) => { done( error )});
                      }).not.to.throwException();
     });
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (1)", ( done ) => {
+    it( "should be callable for '[ \"project-00\" ]' with argument 'args' { ... } (complete and valid) and get rejected", ( done ) => {
+        // note: npm install not called on 'project-00' so any of the 5 dependencies is missing
+        const projects = [ "project-00" ];
+        const dirs     = projects.map(( dir ) => {
+                           return path.join( process.cwd(), "src", "test", "tmp", dir );
+                         });
+        const args     = { args: dirs };
+        expect(() => { outdated.invoke( args )
+                               .then((  value ) => { done( new Error( "Should get rejectd" ))},
+                                     (  error ) => {
+                                       /* expected! see note above */
+                                       // console.error( error );
+                                       expect( Array.isArray( error.failed )).to.be.ok();
+                                       expect( error.failed.length === 1 ).to.be.ok();
+                                       done();
+                                })
+                               .catch(( error ) => { done( error )});
+                     }).not.to.throwException();
+    }).timeout( 150000 );
+    it( "should be callable for '[ \"project-01\" ]' with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
         const projects = [ "project-01" ];
         const dirs     = projects.map(( dir ) => {
                            return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -82,10 +101,13 @@ describe( "01.04.outdated.spec.js - Testing module 'outdated.js'", () => {
         const args     = { args: dirs };
         expect(() => { outdated.invoke( args )
                                .then(( value ) => { done() })
-                               .catch(( error ) => { done( error ); });
+                               .catch(( error ) => {
+                                 // console.log( error )
+                                 done( error );
+                               });
                      }).not.to.throwException();
     }).timeout( 150000 );
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (2)", ( done ) => {
+    it( "should be callable for '[ \"project-04\", \"project-05\" ]' with argument 'args' { ... } (complete and valid) and get rejected", ( done ) => {
         const projects  = [ "project-04", "project-05" ];
         const dirs      = projects.map(( dir ) => {
                             return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -95,14 +117,14 @@ describe( "01.04.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .then(( value ) => { done( new Error( "Should get rejected!" )) },
                                      ( error ) => {
                                        // console.log( error );
-                                       expect( Array.isArray( error )).to.be.ok();
-                                       expect( error.length === 2 ).to.be.ok();
+                                       expect( Array.isArray( error.failed )).to.be.ok();
+                                       expect( error.failed.length === 2 ).to.be.ok();
                                        done();
                                 })
                                .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     }).timeout( 150000 );
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (3)", ( done ) => {
+    it( "should be callable for '[ \"project-06\" ]' with argument 'args' { ... } (complete and valid) and get rejected", ( done ) => {
         const projects = [ "project-06" ];
         const dirs     = projects.map(( dir ) => {
                            return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -112,14 +134,14 @@ describe( "01.04.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .then(( value ) => { done( new Error( "Should get rejected!" )) },
                                      ( error ) => {
                                        // console.log( error );
-                                       expect( Array.isArray( error )).to.be.ok();
-                                       expect( error.length === 1 ).to.be.ok();
+                                       expect( Array.isArray( error.failed )).to.be.ok();
+                                       expect( error.failed.length === 1 ).to.be.ok();
                                        done();
                                 })
                                .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
     }).timeout( 150000 );
-    it( "should be callable with argument 'args' { ... } (complete and valid) and resolve (4)", ( done ) => {
+    it( "should be callable for '[ \"does.not.exist\" ]' with argument 'args' { ... } (complete and valid) and get rejected", ( done ) => {
         const projects = [ "does.not.exist" ];
         const dirs     = projects.map(( dir ) => {
                            return path.join( process.cwd(), "src", "test", "tmp", dir );
@@ -129,8 +151,8 @@ describe( "01.04.outdated.spec.js - Testing module 'outdated.js'", () => {
                                .then(( value ) => { done( new Error( "Should get rejected!" )) },
                                      ( error ) => {
                                        // console.log( error );
-                                       expect( Array.isArray( error )).to.be.ok();
-                                       expect( error.length === 1 ).to.be.ok();
+                                       expect( Array.isArray( error.failed )).to.be.ok();
+                                       expect( error.failed.length === 1 ).to.be.ok();
                                        done();
                                 })
                                .catch(( error ) => { done( error ); });
