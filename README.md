@@ -8,7 +8,7 @@ do npm tasks with this [jsbatchrun](https://www.npmjs.com/package/jsbatchrun) pl
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
 [![codecov](https://codecov.io/gh/db-developer/jsbatchrun-npm/branch/master/graph/badge.svg)](https://codecov.io/gh/db-developer/jsbatchrun-npm)
 [![Build Status](https://travis-ci.com/db-developer/jsbatchrun-npm.svg?branch=master)](https://travis-ci.com/db-developer/jsbatchrun-npm)
-[![dependencies](https://david-dm.org/db-developer/jsbatchrun-npm.svg)](https://david-dm.org/)
+[![dependencies](https://img.shields.io/librariesio/release/npm/jsbatchrun-npm)](https://libraries.io/)
 
 jsbatchrun-npm uses [grunt](https://gruntjs.com/) for accessing npm in a platform independent manner.
 
