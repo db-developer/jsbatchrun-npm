@@ -18,10 +18,10 @@
   "keywords": [ "example" ],
   "peerDependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.20.7",
-    "@rollup/plugin-commonjs": "^24.0.0"
+    "@babel/core": "^7.21.8",
+    "@rollup/plugin-commonjs": "^25.0.0"
   },
   "dependencies": {
-    "grunt": "^1.5.2"
+    "grunt": "^1.6.1"
   }
 }

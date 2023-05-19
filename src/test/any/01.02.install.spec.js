@@ -89,7 +89,7 @@ describe( "01.02.install.spec.js - Testing module 'install.js'", () => {
                            .then(( value ) => { done() })
                            .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
-    }).timeout( 150000 );
+    }).timeout( 250000 );
     it( "should be callable with argument 'args' { ... } (complete and valid) and resolve", ( done ) => {
         const projects = [ "project-03" ];
         const dirs     = projects.map(( dir ) => {
@@ -100,7 +100,7 @@ describe( "01.02.install.spec.js - Testing module 'install.js'", () => {
                            .then(( value ) => { done() })
                            .catch(( error ) => { done( error ); });
                      }).not.to.throwException();
-    }).timeout( 150000 );
+    }).timeout( 250000 );
     it( "should be callable with argument 'args' { ... } (complete but invalid directory) and get rejected", ( done ) => {
         const projects = [ "does.not.exist" ];
         const dirs     = projects.map(( dir ) => {
